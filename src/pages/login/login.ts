@@ -1,7 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
 import {Alert, AlertController, IonicPage, LoadingController, NavController, Select} from 'ionic-angular';
 
-import {Firebase} from '@ionic-native/firebase';
+import {FirebaseX} from "@ionic-native/firebase-x/ngx";
 import {AngularFireAuth} from 'angularfire2/auth';
 import * as firebase from "firebase";
 
@@ -1191,7 +1191,7 @@ export class LoginPage {
 
 
     constructor(public navCtrl: NavController,
-                private fireBase: Firebase,
+                private fireBase: FirebaseX,
                 private  alertCtrl: AlertController,
                 private afs: AngularFireAuth,
 
@@ -1242,7 +1242,9 @@ export class LoginPage {
             this.phone = this.selectedCode+this.phoneNumber;
             this.fireBase.verifyPhoneNumber(this.phone, 60)
 
+            //(<any>window).FirebasePlugin.verifyPhoneNumber(this.phone, 60)
                 .then((credential) => {
+                    alert("SMS Sent");
                     this.verificationId = credential.verificationId; /**  FOR ANDROID    **/
                   //  this.verificationId = credential; /**  FOR IOS **/
 
@@ -1253,6 +1255,7 @@ export class LoginPage {
 
                     this.showCodeInput = true;
                 }).catch((error) => {
+                  alert("Error"+error);
                 this.presentAlert(error)
                 loader.dismissAll()
                 console.error(error)

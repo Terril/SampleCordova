@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firebase } from '@ionic-native/firebase';
+import {FirebaseX} from "@ionic-native/firebase-x/ngx";
 //import { Platform } from 'ionic-angular';
 import { AngularFirestore } from 'angularfire2/firestore';
 
@@ -8,7 +8,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
 export class FcmProvider {
 
   constructor(
-    public firebaseNative: Firebase,
+    public firebaseNative: FirebaseX,
     public afs: AngularFirestore,
   ) {}
 
@@ -51,7 +51,7 @@ export class FcmProvider {
         return this.firebaseNative.subscribe(topic)
     }
   listenToNotifications() {
-    return this.firebaseNative.onNotificationOpen()
+    return this.firebaseNative.onMessageReceived()
 
   }
 

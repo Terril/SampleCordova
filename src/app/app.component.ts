@@ -42,38 +42,38 @@ export class MyApp {
           // Get a FCM token
 
 
-          fcm.listenToNotifications()
-              .subscribe(res => {
-
-                  if (res.wasTapped) {
-                      this.nav.setRoot(res.page, {pageId: res.title});
-
-
-                  }
-                  else {
-                      const toast = toastCtrl.create({
-                          message: res.body,
-                          duration: 10000,
-                          showCloseButton: true,
-                          closeButtonText: 'View',
-                          dismissOnPageChange: true,
-                          position: 'top'
-
-
-                      });
-
-                      toast.present();
-
-                      toast.onDidDismiss((data, role) => {
-                          // console.log('Dismissed toast');
-                          if (role == "close") {
-                              this.nav.push(res.page, {pageId: res.title});
-
-
-                          }
-                      });
-                  }
-              });
+          // fcm.listenToNotifications()
+          //     .subscribe(res => {
+          //
+          //         if (res.wasTapped) {
+          //             this.nav.setRoot(res.page, {pageId: res.title});
+          //
+          //
+          //         }
+          //         else {
+          //             const toast = toastCtrl.create({
+          //                 message: res.body,
+          //                 duration: 10000,
+          //                 showCloseButton: true,
+          //                 closeButtonText: 'View',
+          //                 dismissOnPageChange: true,
+          //                 position: 'top'
+          //
+          //
+          //             });
+          //
+          //             toast.present();
+          //
+          //             toast.onDidDismiss((data, role) => {
+          //                 // console.log('Dismissed toast');
+          //                 if (role == "close") {
+          //                     this.nav.push(res.page, {pageId: res.title});
+          //
+          //
+          //                 }
+          //             });
+          //         }
+          //     });
 
 
       });

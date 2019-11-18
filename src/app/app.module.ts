@@ -12,7 +12,7 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {MyApp} from './app.component';
 
-import {Firebase} from "@ionic-native/firebase";
+import {FirebaseX} from "@ionic-native/firebase-x/ngx";
 
 
 import {FcmProvider} from "../providers/fcm/fcm";
@@ -60,7 +60,7 @@ firebase.initializeApp(config);
   providers: [
 
 
-            Firebase,
+            FirebaseX,
             AngularFireModule,
 
             Camera,
