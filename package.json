@@ -33,7 +33,7 @@
     "@types/auth0-js": "^8.11.2",
     "android": "0.0.8",
     "angularfire2": "^5.1.0",
-    "auth0-js": "^9.8.2",
+    "auth0-js": "^9.13.2",
     "cordova": "^8.1.2",
     "cordova-android": "^8.1.0",
     "cordova-browser": "5.0.4",
